@@ -1,0 +1,17 @@
+city1 city2?SFO LAX 
+city1 city2 (enter if no more)?LAX ATL 
+city1 city2 (enter if no more)?ATL DEN 
+city1 city2 (enter if no more)?DEN BOS 
+city1 city2 (enter if no more)?BOS JFK 
+city1 city2 (enter if no more)?JFK DEN 
+city1 city2 (enter if no more)?DEN PHL 
+city1 city2 (enter if no more)?PHL DFW 
+city1 city2 (enter if no more)?DFW SEA 
+city1 city2 (enter if no more)?SEA DEN 
+city1 city2 (enter if no more)?DEN HOU 
+city1 city2 (enter if no more)?HOU MIA
+city1 city2 (enter if no more)?
+start city: SFO
+SFO -> LAX -> ATL -> DEN
+(DEN) -> BOS -> JFK -> DEN
+(DEN) -> PHL -> DFW -> SEA -> DEN -> HOU -> MIA
