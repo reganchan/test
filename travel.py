@@ -36,10 +36,11 @@ print "start city:", citynames[ startcity ]
 def traverse( city ):
   printstr = "%s" % citynames[ city ]
   nextcities = travels[ city ]
-  nextcitynos = [ i for i in range(len(cities)) if nextcities[i] > 0 ]
 
   maxprintstr = ""
-  for nextcityno in nextcitynos:
+  for nextcityno, travelcount in enumerate(nextcities):
+    if travelcount < 1:
+      continue
     nextcities[ nextcityno ] -= 1
     newprintstr = traverse( nextcityno )
     nextcities[ nextcityno ] += 1
