@@ -33,24 +33,21 @@ if 1!=len(startcity):
 startcity = startcity[0]
 print "start city:", citynames[ startcity ]
 
-def traverse( city, printstr ):
-  printstr += "%s" % citynames[ city ]
+def traverse( city ):
+  printstr = "%s" % citynames[ city ]
   nextcities = travels[ city ]
   nextcitynos = [ i for i in range(len(cities)) if nextcities[i] > 0 ]
-  if len( nextcitynos ) == 1:
-    nextcityno = nextcitynos[0]
-    nextcities[ nextcityno ] -= 1
-    traverse( nextcityno, printstr + " -> " )
-    return
 
-  print printstr
+  maxprintstr = ""
   for nextcityno in nextcitynos:
-    if nextcities[ nextcityno ] < 1:
-      continue
     nextcities[ nextcityno ] -= 1
-    traverse( nextcityno, "(%s) -> " % citynames[city] )
+    newprintstr = traverse( nextcityno )
+    nextcities[ nextcityno ] += 1
+    if len(newprintstr) > len(maxprintstr):
+      maxprintstr = newprintstr
+  return printstr + ( " -> %s" % maxprintstr if maxprintstr else "" )
 
-traverse( startcity, "" )
+print traverse( startcity )
 
 """
 SFO LAX 
